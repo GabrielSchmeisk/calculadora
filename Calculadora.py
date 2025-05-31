@@ -1,3 +1,5 @@
+#By Gabriel Schmeisk
+
 import time
 import math
 
@@ -60,7 +62,7 @@ def inicio():
 ║                                           ║
 ║  Digite o número da opção desejada:       ║
 ╚═══════════════════════════════════════════╝
-          """)
+""")
         if escolha == "1":
             soma()
             break
@@ -93,68 +95,130 @@ def inicio():
             continue
 
 def soma():
-        while True:
-            try:
-                n1 = float(input("Digite o primeiro número da soma:").replace(",", "."))
-                n2 = float(input("Digite o segundo número número da soma:").replace(",", "."))
-            except ValueError:
-                    print("\nVocê deve digitar apenas números!\n")
-                    continue
+    while True:
+        try:
+            n1 = float(input("Digite o primeiro número da soma: ").replace(",", "."))
+            n2 = float(input("Digite o segundo número da soma: ").replace(",", "."))
+            break
+        except ValueError:
+            print("Você deve digitar apenas números válidos!")
 
-            resultado = n1 + n2
+    resultado = n1 + n2
+    print(f"Resultado parcial: {resultado}")
 
+    while True:
+        entrada = input("Digite outro número para somar (ou 'sair' para terminar): ").replace(",", ".").strip().lower()
+        if entrada == 'sair':
+            break
+        try:
+            numero = float(entrada)
+            resultado += numero
+            print(f"Resultado parcial: {resultado}")
+        except ValueError:
+            print("Digite um número válido ou 'sair' para terminar.")
 
-            print(f"O resultado de {n1} + {n2} = {resultado}")
-
-            perguntar_continuar(soma)
+    print(f"""
+╔══════════════════════════════════════╗
+║ Resultado final da soma: {resultado}      
+╚══════════════════════════════════════╝
+""")
+    perguntar_continuar(soma)
 
 def subtracao():
-        while True:
-            try:
-                n1 = float(input("Digite o primeiro número da subtração:").replace(",", "."))
-                n2 = float(input("Digite o segundo número da subtração:").replace(",", "."))
-            except ValueError:
-                    print("\nVocê deve digitar apenas números!\n")
-                    continue
+    while True:
+        try:
+            n1 = float(input("Digite o primeiro número da subtração: ").replace(",", "."))
+            n2 = float(input("Digite o segundo número da subtração: ").replace(",", "."))
+            break
+        except ValueError:
+            print("\nVocê deve digitar apenas números!\n")
 
-            resultado = n1 - n2
+    resultado = n1 - n2
+    print(f"Resultado parcial: {resultado}")
 
-            print(f"O resultado de {n1} - {n2} = {resultado}")
+    while True:
+        entrada = input("Digite outro número para subtrair (ou 'sair' para terminar): ").replace(",", ".").strip().lower()
+        if entrada == 'sair':
+            break
+        try:
+            numero = float(entrada)
+            resultado -= numero
+            print(f"Resultado parcial: {resultado}")
+        except ValueError:
+            print("Digite um número válido ou 'sair' para terminar.")
 
-            perguntar_continuar(subtracao)
+    print(f"""
+╔═════════════════════════════════════════╗
+║ Resultado final da subtração: {resultado}    
+╚═════════════════════════════════════════╝
+""")
+    perguntar_continuar(subtracao)
 
 def multiplicacao():
-        while True:
-            try:
-                n1 = float(input("Digite o primeiro número da multiplicação:").replace(",", "."))
-                n2 = float(input("Digite o segundo número da multiplicação:").replace(",", "."))
-            except ValueError:
-                    print("\nVocê deve digitar apenas números!\n")
-                    continue
+    while True:
+        try:
+            n1 = float(input("Digite o primeiro número da multiplicação: ").replace(",", "."))
+            n2 = float(input("Digite o segundo número da multiplicação: ").replace(",", "."))
+            break
+        except ValueError:
+            print("\nVocê deve digitar apenas números!\n")
 
-            resultado = n1 * n2
+    resultado = n1 * n2
+    print(f"Resultado parcial: {resultado}")
 
-            print(f"O resultado de {n1} x {n2} = {resultado}")
+    while True:
+        entrada = input("Digite outro número para multiplicar (ou 'sair' para terminar): ").replace(",", ".").strip().lower()
+        if entrada == 'sair':
+            break
+        try:
+            numero = float(entrada)
+            resultado *= numero
+            print(f"Resultado parcial: {resultado}")
+        except ValueError:
+            print("Digite um número válido ou 'sair' para terminar.")
 
-            perguntar_continuar(multiplicacao)
+    print(f"""
+╔═════════════════════════════════════════════╗
+║ Resultado final da multiplicação: {resultado}   
+╚═════════════════════════════════════════════╝
+""")
+    perguntar_continuar(multiplicacao)
 
 def divisao():
-        while True:
-            try:
-                n1 = float(input("Digite o primeiro número da divisão:").replace(",", "."))
-                n2 = float(input("Digite o segundo número da divisão:").replace(",", "."))
-                if n2 == 0:
-                    print("\nVocê não pode dividir por 0.\n")
-                    continue
-            except ValueError:
-                    print("\nVocê deve digitar apenas números!\n")
-                    continue
+    while True:
+        try:
+            n1 = float(input("Digite o primeiro número da divisão: ").replace(",", "."))
+            n2 = float(input("Digite o segundo número da divisão: ").replace(",", "."))
+            if n2 == 0:
+                print("\nVocê não pode dividir por 0.\n")
+                continue
+            break
+        except ValueError:
+            print("\nVocê deve digitar apenas números!\n")
 
-            resultado = n1 / n2
+    resultado = n1 / n2
+    print(f"Resultado parcial: {resultado}")
 
-            print(f"O resultado de {n1} / {n2} = {resultado}")
+    while True:
+        entrada = input("Digite outro número para dividir (ou 'sair' para terminar): ").replace(",", ".").strip().lower()
+        if entrada == 'sair':
+            break
+        try:
+            numero = float(entrada)
+            if numero == 0:
+                print("Divisão por zero não é permitida, tente outro número.")
+                continue
+            resultado /= numero
+            print(f"Resultado parcial: {resultado}")
+        except ValueError:
+            print("Digite um número válido ou 'sair' para terminar.")
 
-            perguntar_continuar(divisao)
+        print(f"""
+╔══════════════════════════════════════════╗
+║ Resultado final da divisão: {resultado}    
+╚══════════════════════════════════════════╝
+""")
+    perguntar_continuar(divisao)
 
 def porcentagem():
         while True:
@@ -167,7 +231,11 @@ def porcentagem():
 
             resultado = n1 * n2 / 100
 
-            print(f"{n1}% de {n2} = {resultado}")
+            print(f"""
+╔═════════════════════════╗
+║ {n1}% de {n2} = {resultado}             
+╚═════════════════════════╝
+""")
 
             perguntar_continuar(porcentagem)
 
@@ -211,11 +279,19 @@ def raiz():
             tipo = str(input("Você deseja fazer a raiz quadrada ou cubica?\n\n1 - Quadrada\n2 - Cubica\n"))
             if tipo == "1":
                 resultado = round(math.sqrt(n1), 2)
-                print(f"A raiz quadrada de {n1} é {resultado}\n")
+                print(f"""
+╔══════════════════════════════════════╗
+║ A raiz quadrada de {n1} é {resultado}    
+╚══════════════════════════════════════╝
+""")
 
             elif tipo == "2":
                 resultado = round(n1 ** (1/3), 2)
-                print(f"A raiz cúbica de {n1} é {resultado}\n")
+                print(f"""
+╔══════════════════════════════════════╗
+║ A raiz cúbica de {n1} é {resultado}      
+╚══════════════════════════════════════╝
+""")
 
             else:
                  print ("Você não escolheu uma opçaõ válida, 1/2. Tente novamente.")
@@ -252,11 +328,11 @@ def imc():
                 classificacao = "Obesidade Grau III (mórbida)"
                 
             print(f"""
-            --------------------------------------
-            Resultado: {resultado}
-            Classificação: {classificacao}
-            --------------------------------------
-            """)
+╔═══════════════════════════════════════════╗
+            Resultado: {resultado}            
+         Classificação: {classificacao}      
+╚═══════════════════════════════════════════╝
+""")
 
             while True:
                 continuar = input("\nPressione ENTER para fazer outro cálculo de IMC, 'IMC' para ver a tabela de cálculo de IMC, ou 'VOLTAR' para voltar ao início:\n").strip().capitalize()
@@ -273,19 +349,22 @@ def imc():
                     continue
                 
 def tabela_imc():
-    print("\nTabela de Classificação do IMC:")
-    print("=" * 45)
-    print(f"{'IMC':<20}{'Classificação'}")
-    print("-" * 45)
-    print(f"Menor que 16         Magreza Grave")
-    print(f"16,0 - 16,9          Magreza Moderada")
-    print(f"17,0 - 18,4          Magreza Leve")
-    print(f"18,5 - 24,9          Peso ideal")
-    print(f"25,0 - 29,9          Sobrepeso")
-    print(f"30,0 - 34,9          Obesidade Grau I")
-    print(f"35,0 - 39,9          Obesidade Grau II (severa)")
-    print(f"Maior ou igual a 40  Obesidade Grau III (mórbida)")
-    print("=" * 45)
+    print("""
+╔══════════════════════╦════════════════════════════════╗
+║ IMC                  ║ Classificação                  ║
+╠══════════════════════╬════════════════════════════════╣
+║ Menor que 16         ║ Magreza Grave                  ║
+║ 16,0 - 16,9          ║ Magreza Moderada               ║
+║ 17,0 - 18,4          ║ Magreza Leve                   ║
+║ 18,5 - 24,9          ║ Peso ideal                     ║
+║ 25,0 - 29,9          ║ Sobrepeso                      ║
+║ 30,0 - 34,9          ║ Obesidade Grau I               ║
+║ 35,0 - 39,9          ║ Obesidade Grau II (severa)     ║
+║ Maior ou igual a 40  ║ Obesidade Grau III (mórbida)   ║
+╚══════════════════════╩════════════════════════════════╝
+""")
+    
+    perguntar_continuar(imc)
 
 def mediaunip():
     while True:
@@ -295,44 +374,55 @@ def mediaunip():
             pim = float(input("Digite sua nota do PIM: ").replace(",", "."))
         except ValueError:
             print("\nDigite apenas números válidos!\n")
-            mediaunip()
-        
-        mf = (np1 * 4 + np2 * 4 + pim * 2) / 10 
-        
+            continue
+
+        mf = (np1 * 4 + np2 * 4 + pim * 2) / 10
+
         if mf >= 7:
-            print(f"Sua média foi de {mf:.2f}, você passou!")
-            continuar = input("Pressione ENTER para fazer outro cálculo, digite 'EXAME' para calcular a média do EXAME, ou 'SAIR' para retornar ao menu principal.")
-            if continuar.lower() == "sair":
-                 inicio()
-            elif continuar.lower() == "":
-                 continue
-            elif continuar.lower() == "exame":
-                 break
+            print(f"""
+╔═══════════════════════════════════════════╗
+       Média Final: {mf:.2f} - APROVADO!
+╚═══════════════════════════════════════════╝
+""")
+            continuar = input("Pressione ENTER para novo cálculo ou digite 'SAIR' para retornar ao menu principal:\n").strip().lower()
+            if continuar == "sair":
+                inicio()
+                break
             else:
-                 print("Escolha uma opção válida!")
-                 continue
-                   
+                continue
+
         else:
-            print(f"Sua média foi de {mf:.2f}, você está de EXAME!")
-            examecalc = input("Você quer calcular sua nota do exame? SIM/NÃO: ").strip().lower()
-            
+            print(f"""
+╔═══════════════════════════════════════════╗
+       Média Final: {mf:.2f} - EXAME!
+╚═══════════════════════════════════════════╝
+""")
+            examecalc = input("Você quer calcular sua nota do exame? (SIM/NÃO): ").strip().lower()
+
             if examecalc == "sim":
                 try:
                     exame = float(input("Digite sua nota do exame: ").replace(",", "."))
                 except ValueError:
                     print("\nDigite apenas números válidos!\n")
-                    mediaunip() 
-                
-                ms = (mf + exame) / 2
-                
-                if ms >= 5:
-                    print(f"Parabéns, sua média final foi de {ms:.2f}, você passou!")
-                else:
-                    print(f"Infelizmente sua média final foi de {ms:.2f}, você está de DP!")
-            else:
-                print("Você escolheu não fazer o exame. Tente novamente na próxima vez.")
-                exit() 
+                    continue
 
-            perguntar_continuar(mediaunip)
+                ms = (mf + exame) / 2
+
+                if ms >= 5:
+                    print(f"""
+╔═══════════════════════════════════════════╗
+     Média com Exame: {ms:.2f} - APROVADO!
+╚═══════════════════════════════════════════╝
+""")
+                else:
+                    print(f"""
+╔══════════════════════════════════════╗
+     Média com Exame: {ms:.2f} - DP
+╚══════════════════════════════════════╝
+""")
+            else:
+                print("Você escolheu não calcular a nota do exame.")
+
+        perguntar_continuar(mediaunip)
 
 inicio()
