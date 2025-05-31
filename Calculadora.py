@@ -385,7 +385,7 @@ def mediaunip():
 ╚═══════════════════════════════════════════╝
 """)
             continuar = input("Pressione ENTER para novo cálculo ou digite 'SAIR' para retornar ao menu principal:\n").strip().lower()
-            if continuar == "sair":
+            if continuar.lower() == "sair":
                 inicio()
                 break
             else:
@@ -399,7 +399,7 @@ def mediaunip():
 """)
             examecalc = input("Você quer calcular sua nota do exame? (SIM/NÃO): ").strip().lower()
 
-            if examecalc == "sim":
+            if examecalc.lower() == "sim":
                 try:
                     exame = float(input("Digite sua nota do exame: ").replace(",", "."))
                 except ValueError:
